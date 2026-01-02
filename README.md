@@ -1,6 +1,6 @@
 # Zip Code Normalizer
 
-A server-side Google Tag Manager variable template that normalizes postal/zip codes for server-side tracking by removing spaces and hyphens, converting to lowercase. Validates length (3-10 characters).
+A Google Tag Manager variable template for both web and server containers that normalizes postal/zip codes for server-side tracking by removing spaces and hyphens, converting to lowercase. Validates length (3-10 characters).
 
 ## Overview
 
@@ -8,7 +8,7 @@ This template prepares postal codes for hashing and sending to advertising platf
 
 ## Installation
 
-1. In your server-side GTM container, go to **Templates** → **Variable Templates** → **Search Gallery**
+1. In your GTM container (web or server-side), go to **Templates** → **Variable Templates** → **Search Gallery**
 2. Search for "Zip Code Normalizer"
 3. Click **Add to workspace**
 
@@ -59,6 +59,12 @@ Works with postal codes from any country, including:
 1. Create a variable using this template
 2. Set **Raw Zip Code** to your postal code data source (e.g., `{{Event Data - zip}}`)
 3. Use the normalized output in your tracking tags or hash it for CAPI
+
+## Compatibility
+
+This template works in both:
+- **Web GTM** containers
+- **Server-side GTM** containers
 
 ## Author
 

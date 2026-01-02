@@ -1,5 +1,5 @@
 homepage: "https://github.com/metryxstudio/zip-normalizer"
 documentation: "https://github.com/metryxstudio/zip-normalizer#readme"
 versions:
-  - sha: 0aecb804ec83329c0e097ed987efe4bc2caa4e72
+  - sha: # Add your commit SHA after pushing to GitHub
     changeNotes: "Initial release"

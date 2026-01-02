@@ -15,7 +15,8 @@ ___INFO___
   "displayName": "Zip Code Normalizer",
   "description": "Normalizes postal/zip codes for server-side tracking by removing spaces and hyphens, converting to lowercase. Validates length (3-10 characters).",
   "containerContexts": [
-    "SERVER"
+    "SERVER",
+    "WEB"
   ],
   "categories": ["UTILITY"],
   "brand": {
@@ -74,6 +75,52 @@ var normalizeZipCode = function(data) {
 };
 
 return normalizeZipCode(data);
+
+
+___SANDBOXED_JS_FOR_WEB_TEMPLATE___
+
+var makeString = require('makeString');
+
+var normalizeZipCode = function(data) {
+  var rawZipCode = data.rawZipCode;
+
+  if (!rawZipCode) {
+    return undefined;
+  }
+
+  var zipString = makeString(rawZipCode).trim().toLowerCase();
+  
+  if (zipString.length === 0) {
+    return undefined;
+  }
+  
+  var normalizedZip = '';
+  
+  for (var i = 0; i < zipString.length; i++) {
+    var char = zipString.charAt(i);
+    
+    var isLetter = (char >= 'a' && char <= 'z');
+    var isNumber = (char >= '0' && char <= '9');
+    
+    if (isLetter || isNumber) {
+      normalizedZip = normalizedZip + char;
+    }
+  }
+  
+  if (normalizedZip.length < 3 || normalizedZip.length > 10) {
+    return undefined;
+  }
+  
+  return normalizedZip;
+};
+
+return normalizeZipCode(data);
+
+
+
+___WEB_PERMISSIONS___
+
+[]
 
 
 ___SERVER_PERMISSIONS___
